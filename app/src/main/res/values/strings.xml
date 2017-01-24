@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MiniGame</string>
+    <string name="player_name">플레이어</string>
+</resources>

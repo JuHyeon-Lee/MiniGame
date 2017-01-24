@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.minigame">
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/game"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/nothing">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".GameSelect"/>
+
+        <activity android:name=".Dudogi"/>
+
+        <activity android:name=".Ranking">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakolink_host"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Setting"/>
+
+        <activity android:name=".Muffin"/>
+
+        <activity android:name=".Card"/>
+
+        <activity android:name=".Waffle"/>
+
+        <service android:name=".BackgroundMusic">
+            <intent-filter>﻿
+                <action android:name="com.Example.service.test" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key"/>
+
+    </application>
+
+</manifest>

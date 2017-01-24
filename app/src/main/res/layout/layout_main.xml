@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#4d25b6d2" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/game"
+        android:id="@+id/icon_game" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/blank1"
+        android:layout_height="80dp" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/name_player"
+        android:textSize="20sp"
+        android:textColor="#81000000"
+        android:hint="닉네임"
+        android:maxLength="5"
+        android:layout_width="65dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/blank2"
+        android:layout_height="20dp" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#00ff0000"
+        app:srcCompat="@drawable/gamestart"
+        android:id="@+id/game_start" />
+
+</LinearLayout>
