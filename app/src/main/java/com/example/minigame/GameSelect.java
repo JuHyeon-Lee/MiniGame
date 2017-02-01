@@ -34,6 +34,22 @@ public class GameSelect extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(GameSelect.this, Ranking.class);
 
+                TextView name = (TextView) findViewById(R.id.name_games);
+                String s = name.getText().toString();
+                intent2.putExtra("이름", s);
+
+                TextView score_dudogi = (TextView) findViewById(R.id.highscore_dudogi);
+                intent2.putExtra("두더지점수", Integer.valueOf(score_dudogi.getText().toString()));
+
+                TextView score_waffle = (TextView) findViewById(R.id.highscore_waffle);
+                intent2.putExtra("와플점수", Integer.valueOf(score_waffle.getText().toString()));
+
+                TextView score_card = (TextView) findViewById(R.id.highscore_card);
+                intent2.putExtra("카드점수", Integer.valueOf(score_card.getText().toString()));
+
+                TextView score_muffin = (TextView) findViewById(R.id.highscore_muffin);
+                intent2.putExtra("머핀점수", Integer.valueOf(score_muffin.getText().toString()));
+
                 startActivity(intent2);
             }
         });
