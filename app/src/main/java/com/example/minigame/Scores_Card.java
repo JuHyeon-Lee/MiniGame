@@ -8,11 +8,13 @@ public class Scores_Card implements Serializable {
     int rank;
     String name;
     int score;
+    int d;
 
-    public Scores_Card(int rank, String name, int score){
+    public Scores_Card(int rank, String name, int score, int d){
         this.rank = rank;
         this.name = name;
         this.score = score;
+        this.d = d;
     }
 
     public void setRank(int rank){
@@ -37,6 +39,10 @@ public class Scores_Card implements Serializable {
 
     public int getScore(){
         return score;
+    }
+
+    public int getD(){
+        return d;
     }
 
 }

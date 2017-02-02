@@ -1,5 +1,7 @@
 package com.example.minigame;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.Serializable;
 
 public class Scores_Muffin implements Serializable {
@@ -7,11 +9,13 @@ public class Scores_Muffin implements Serializable {
     int rank;
     String name;
     int score;
+    int d;
 
-    public Scores_Muffin(int rank, String name, int score){
+    public Scores_Muffin(int rank, String name, int score, int d){
         this.rank = rank;
         this.name = name;
         this.score = score;
+        this.d = d;
     }
 
     public void setRank(int rank){
@@ -36,6 +40,10 @@ public class Scores_Muffin implements Serializable {
 
     public int getScore(){
         return score;
+    }
+
+    public int getD(){
+        return d;
     }
 
 }

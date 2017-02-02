@@ -1,22 +1,25 @@
 package com.example.minigame;
 
+import android.app.Dialog;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,65 +67,65 @@ public class Ranking extends TabActivity {
                 .setBackgroundColor(Color.parseColor("#9925b6d2"));
 
 
-        datas_card.add(new Scores_Card(0, "가가가", 8));
-        datas_card.add(new Scores_Card(0, "나나나", 4));
-        datas_card.add(new Scores_Card(0, "다다다", 2));
-        datas_card.add(new Scores_Card(0, "라라라", 6));
-        datas_card.add(new Scores_Card(0, "마마마", 12));
-        datas_card.add(new Scores_Card(0, "바바바", 16));
-        datas_card.add(new Scores_Card(0, "사사사", 18));
-        datas_card.add(new Scores_Card(0, "아아아", 19));
-        datas_card.add(new Scores_Card(0, "자자자", 9));
-        datas_card.add(new Scores_Card(0, "차차차", 7));
-        datas_card.add(new Scores_Card(0, "카카카", 5));
-        datas_card.add(new Scores_Card(0, "타타타", 11));
-        datas_card.add(new Scores_Card(0, "파파파", 15));
-        datas_card.add(new Scores_Card(0, "하하하", 13));
+        datas_card.add(new Scores_Card(0, "가가가", 8, R.drawable.aprofile));
+        datas_card.add(new Scores_Card(0, "나나나", 4, R.drawable.bprofile));
+        datas_card.add(new Scores_Card(0, "다다다", 2, R.drawable.cprofile));
+        datas_card.add(new Scores_Card(0, "라라라", 6, R.drawable.dprofile));
+        datas_card.add(new Scores_Card(0, "마마마", 12, R.drawable.eprofile));
+        datas_card.add(new Scores_Card(0, "바바바", 16, R.drawable.fprofile));
+        datas_card.add(new Scores_Card(0, "사사사", 18, R.drawable.gprofile));
+        datas_card.add(new Scores_Card(0, "아아아", 19, R.drawable.hprofile));
+        datas_card.add(new Scores_Card(0, "자자자", 9, R.drawable.iprofile));
+        datas_card.add(new Scores_Card(0, "차차차", 7, R.drawable.jprofile));
+        datas_card.add(new Scores_Card(0, "카카카", 5, R.drawable.kprofile));
+        datas_card.add(new Scores_Card(0, "타타타", 11, R.drawable.lprofile));
+        datas_card.add(new Scores_Card(0, "파파파", 15, R.drawable.mprofile));
+        datas_card.add(new Scores_Card(0, "하하하", 13, R.drawable.nprofile));
 
-        datas_waffle.add(new Scores_Waffle(0, "가가가", 5));
-        datas_waffle.add(new Scores_Waffle(0, "나나나", 6));
-        datas_waffle.add(new Scores_Waffle(0, "다다다", 2));
-        datas_waffle.add(new Scores_Waffle(0, "라라라", 8));
-        datas_waffle.add(new Scores_Waffle(0, "마마마", 1));
-        datas_waffle.add(new Scores_Waffle(0, "바바바", 9));
-        datas_waffle.add(new Scores_Waffle(0, "사사사", 5));
-        datas_waffle.add(new Scores_Waffle(0, "아아아", 13));
-        datas_waffle.add(new Scores_Waffle(0, "자자자", 6));
-        datas_waffle.add(new Scores_Waffle(0, "차차차", 3));
-        datas_waffle.add(new Scores_Waffle(0, "카카카", 9));
-        datas_waffle.add(new Scores_Waffle(0, "타타타", 2));
-        datas_waffle.add(new Scores_Waffle(0, "파파파", 11));
-        datas_waffle.add(new Scores_Waffle(0, "하하하", 9));
+        datas_waffle.add(new Scores_Waffle(0, "가가가", 5, R.drawable.aprofile));
+        datas_waffle.add(new Scores_Waffle(0, "나나나", 6, R.drawable.bprofile));
+        datas_waffle.add(new Scores_Waffle(0, "다다다", 2, R.drawable.cprofile));
+        datas_waffle.add(new Scores_Waffle(0, "라라라", 8, R.drawable.dprofile));
+        datas_waffle.add(new Scores_Waffle(0, "마마마", 1, R.drawable.eprofile));
+        datas_waffle.add(new Scores_Waffle(0, "바바바", 9, R.drawable.fprofile));
+        datas_waffle.add(new Scores_Waffle(0, "사사사", 5, R.drawable.gprofile));
+        datas_waffle.add(new Scores_Waffle(0, "아아아", 13, R.drawable.hprofile));
+        datas_waffle.add(new Scores_Waffle(0, "자자자", 6, R.drawable.iprofile));
+        datas_waffle.add(new Scores_Waffle(0, "차차차", 3, R.drawable.jprofile));
+        datas_waffle.add(new Scores_Waffle(0, "카카카", 9, R.drawable.kprofile));
+        datas_waffle.add(new Scores_Waffle(0, "타타타", 2, R.drawable.lprofile));
+        datas_waffle.add(new Scores_Waffle(0, "파파파", 11, R.drawable.mprofile));
+        datas_waffle.add(new Scores_Waffle(0, "하하하", 9, R.drawable.nprofile));
 
-        datas_dudogi.add(new Scores_Dudogi(0, "가가가", 8));
-        datas_dudogi.add(new Scores_Dudogi(0, "나나나", 3));
-        datas_dudogi.add(new Scores_Dudogi(0, "다다다", 5));
-        datas_dudogi.add(new Scores_Dudogi(0, "라라라", 8));
-        datas_dudogi.add(new Scores_Dudogi(0, "마마마", 19));
-        datas_dudogi.add(new Scores_Dudogi(0, "바바바", 16));
-        datas_dudogi.add(new Scores_Dudogi(0, "사사사", 14));
-        datas_dudogi.add(new Scores_Dudogi(0, "아아아", 8));
-        datas_dudogi.add(new Scores_Dudogi(0, "자자자", 4));
-        datas_dudogi.add(new Scores_Dudogi(0, "차차차", 3));
-        datas_dudogi.add(new Scores_Dudogi(0, "카카카", 7));
-        datas_dudogi.add(new Scores_Dudogi(0, "타타타", 9));
-        datas_dudogi.add(new Scores_Dudogi(0, "파파파", 11));
-        datas_dudogi.add(new Scores_Dudogi(0, "하하하", 3));
+        datas_dudogi.add(new Scores_Dudogi(0, "가가가", 8, R.drawable.aprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "나나나", 3, R.drawable.bprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "다다다", 5, R.drawable.cprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "라라라", 8, R.drawable.dprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "마마마", 19, R.drawable.eprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "바바바", 16, R.drawable.fprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "사사사", 14, R.drawable.gprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "아아아", 8, R.drawable.hprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "자자자", 4, R.drawable.iprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "차차차", 3, R.drawable.jprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "카카카", 7, R.drawable.kprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "타타타", 9, R.drawable.lprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "파파파", 11, R.drawable.mprofile));
+        datas_dudogi.add(new Scores_Dudogi(0, "하하하", 3, R.drawable.nprofile));
 
-        datas_muffin.add(new Scores_Muffin(0, "가가가", 200));
-        datas_muffin.add(new Scores_Muffin(0, "나나나", 110));
-        datas_muffin.add(new Scores_Muffin(0, "다다다", 320));
-        datas_muffin.add(new Scores_Muffin(0, "라라라", 160));
-        datas_muffin.add(new Scores_Muffin(0, "마마마", 170));
-        datas_muffin.add(new Scores_Muffin(0, "바바바", 240));
-        datas_muffin.add(new Scores_Muffin(0, "사사사", 90));
-        datas_muffin.add(new Scores_Muffin(0, "아아아", 30));
-        datas_muffin.add(new Scores_Muffin(0, "자자자", 100));
-        datas_muffin.add(new Scores_Muffin(0, "차차차", 60));
-        datas_muffin.add(new Scores_Muffin(0, "카카카", 140));
-        datas_muffin.add(new Scores_Muffin(0, "타타타", 80));
-        datas_muffin.add(new Scores_Muffin(0, "파파파", 40));
-        datas_muffin.add(new Scores_Muffin(0, "하하하", 50));
+        datas_muffin.add(new Scores_Muffin(0, "가가가", 200, R.drawable.aprofile));
+        datas_muffin.add(new Scores_Muffin(0, "나나나", 110, R.drawable.bprofile));
+        datas_muffin.add(new Scores_Muffin(0, "다다다", 320, R.drawable.cprofile));
+        datas_muffin.add(new Scores_Muffin(0, "라라라", 160, R.drawable.dprofile));
+        datas_muffin.add(new Scores_Muffin(0, "마마마", 170, R.drawable.eprofile));
+        datas_muffin.add(new Scores_Muffin(0, "바바바", 240, R.drawable.fprofile));
+        datas_muffin.add(new Scores_Muffin(0, "사사사", 90, R.drawable.gprofile));
+        datas_muffin.add(new Scores_Muffin(0, "아아아", 30, R.drawable.hprofile));
+        datas_muffin.add(new Scores_Muffin(0, "자자자", 100, R.drawable.iprofile));
+        datas_muffin.add(new Scores_Muffin(0, "차차차", 60, R.drawable.jprofile));
+        datas_muffin.add(new Scores_Muffin(0, "카카카", 140, R.drawable.kprofile));
+        datas_muffin.add(new Scores_Muffin(0, "타타타", 80, R.drawable.lprofile));
+        datas_muffin.add(new Scores_Muffin(0, "파파파", 40, R.drawable.mprofile));
+        datas_muffin.add(new Scores_Muffin(0, "하하하", 50, R.drawable.nprofile));
 
 
         LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -158,6 +161,92 @@ public class Ranking extends TabActivity {
 
         ListView listView_muffin = (ListView)findViewById(R.id.listView_muffin);
         listView_muffin.setAdapter(MuffinAdapter);
+
+        Button search = (Button) findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                EditText name_search = (EditText) findViewById(R.id.name_search);
+                String name = name_search.getText().toString();
+
+                ShowProfile(name);
+            }
+        });
+
+    }
+
+    public void ShowProfile(String name){
+
+        for(int i=0; i<datas_dudogi.size(); i++){
+            Scores_Dudogi ft=datas_dudogi.get(i);
+            if(name.equals(ft.getName())){
+
+                Dialog dialog1 = new Dialog(this);
+                dialog1.setContentView(R.layout.layout_profile);
+                dialog1.setTitle("프로필 정보");
+
+                TextView name_profile = (TextView) dialog1.findViewById(R.id.name_profile);
+                name_profile.setText(ft.getName());
+
+                ImageView iv = (ImageView) dialog1.findViewById(R.id.image_profile);
+                iv.setImageResource(ft.getD());
+
+                TableLayout tb = (TableLayout) dialog1.findViewById(R.id.info_profile);
+
+                TextView ranking_dudogi_profile = (TextView) dialog1.findViewById(R.id.ranking_dudogi_profile);
+                TextView ranking_muffin_profile = (TextView) dialog1.findViewById(R.id.ranking_muffin_profile);
+                TextView ranking_card_profile = (TextView) dialog1.findViewById(R.id.ranking_card_profile);
+                TextView ranking_waffle_profile = (TextView) dialog1.findViewById(R.id.ranking_waffle_profile);
+
+                TextView score_dudogi_profile = (TextView) dialog1.findViewById(R.id.score_dudogi_profile);
+                TextView score_muffin_profile = (TextView) dialog1.findViewById(R.id.score_muffin_profile);
+                TextView score_card_profile = (TextView) dialog1.findViewById(R.id.score_card_profile);
+                TextView score_waffle_profile = (TextView) dialog1.findViewById(R.id.score_waffle_profile);
+
+                ranking_dudogi_profile.setText(Integer.toString(ft.getRank()));
+                score_dudogi_profile.setText(Integer.toString(ft.getScore()));
+
+                for(int i2=0; i<datas_muffin.size(); i2++) {
+                    Scores_Muffin ft2 = datas_muffin.get(i2);
+                    if (name.equals(ft2.getName())) {
+                        ranking_muffin_profile.setText(Integer.toString(ft2.getRank()));
+                        score_muffin_profile.setText(Integer.toString(ft2.getScore()));
+                        break;
+                    }
+                }
+
+                for(int i3=0; i<datas_card.size(); i3++) {
+                    Scores_Card ft3 = datas_card.get(i3);
+                    if (name.equals(ft3.getName())) {
+                        ranking_card_profile.setText(Integer.toString(ft3.getRank()));
+                        score_card_profile.setText(Integer.toString(ft3.getScore()));
+                        break;
+                    }
+                }
+
+                for(int i4=0; i<datas_waffle.size(); i4++) {
+                    Scores_Waffle ft4 = datas_waffle.get(i4);
+                    if (name.equals(ft4.getName())) {
+                        ranking_waffle_profile.setText(Integer.toString(ft4.getRank()));
+                        score_waffle_profile.setText(Integer.toString(ft4.getScore()));
+                        break;
+                    }
+                }
+
+                dialog1.show();
+
+                break;
+            }
+            else if(i==(datas_dudogi.size()-1)){
+
+                Toast toast = Toast.makeText(getApplicationContext(),"검색결과가 없습니다.", Toast.LENGTH_SHORT);
+                toast.show();
+
+                break;
+            }
+        }
+
     }
 
     // 점수 내림차순
@@ -223,7 +312,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_dudogi.remove(i);
-                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi));
+                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.meprofile));
                 Collections.sort(datas_dudogi, new Ranking.NoDescCompare1());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -234,7 +323,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_dudogi.size()-1)){
 
-                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi));
+                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.meprofile));
                 Collections.sort(datas_dudogi, new Ranking.NoDescCompare1());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -250,7 +339,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_waffle.remove(i);
-                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle));
+                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.meprofile));
                 Collections.sort(datas_waffle, new Ranking.NoDescCompare2());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -261,7 +350,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_waffle.size()-1)){
 
-                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle));
+                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.meprofile));
                 Collections.sort(datas_waffle, new Ranking.NoDescCompare2());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -277,7 +366,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_card.remove(i);
-                datas_card.add(new Scores_Card(0, player_name, score_card));
+                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.meprofile));
                 Collections.sort(datas_card, new Ranking.NoDescCompare3());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -288,7 +377,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_card.size()-1)){
 
-                datas_card.add(new Scores_Card(0, player_name, score_card));
+                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.meprofile));
                 Collections.sort(datas_card, new Ranking.NoDescCompare3());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -304,7 +393,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_muffin.remove(i);
-                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin));
+                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.meprofile));
                 Collections.sort(datas_muffin, new Ranking.NoDescCompare4());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -315,7 +404,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_muffin.size()-1)){
 
-                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin));
+                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.meprofile));
                 Collections.sort(datas_muffin, new Ranking.NoDescCompare4());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -324,6 +413,23 @@ public class Ranking extends TabActivity {
 
                 break;
             }
+        }
+
+        for(int i=0; i<datas_dudogi.size(); i++) {
+            Scores_Dudogi ft = datas_dudogi.get(i);
+            ft.setRank(i+1);
+        }
+        for(int i=0; i<datas_muffin.size(); i++) {
+            Scores_Muffin ft = datas_muffin.get(i);
+            ft.setRank(i+1);
+        }
+        for(int i=0; i<datas_card.size(); i++) {
+            Scores_Card ft = datas_card.get(i);
+            ft.setRank(i+1);
+        }
+        for(int i=0; i<datas_waffle.size(); i++) {
+            Scores_Waffle ft = datas_waffle.get(i);
+            ft.setRank(i+1);
         }
 
     }
@@ -371,8 +477,6 @@ public class Ranking extends TabActivity {
                 convertView= inflater.inflate(R.layout.row, null);
             }
 
-            datas.get(position).setRank(position+1);
-
             TextView text_name= (TextView)convertView.findViewById(R.id.name);
             TextView text_score= (TextView)convertView.findViewById(R.id.score);
             TextView text_rank= (TextView)convertView.findViewById(R.id.rank);
@@ -380,6 +484,9 @@ public class Ranking extends TabActivity {
             text_name.setText( datas.get(position).getName() );
             text_score.setText( Integer.toString(datas.get(position).getScore()) );
             text_rank.setText( Integer.toString(datas.get(position).getRank()) );
+
+            ImageView profile = (ImageView) convertView.findViewById(R.id.profile);
+            profile.setImageResource(datas.get(position).getD());
 
             LinearLayout row = (LinearLayout) convertView.findViewById(R.id.layout_row);
             if(datas.get(position).getName()==player_name){
@@ -430,8 +537,6 @@ public class Ranking extends TabActivity {
                 convertView= inflater.inflate(R.layout.row, null);
             }
 
-            datas.get(position).setRank(position+1);
-
             TextView text_name= (TextView)convertView.findViewById(R.id.name);
             TextView text_score= (TextView)convertView.findViewById(R.id.score);
             TextView text_rank= (TextView)convertView.findViewById(R.id.rank);
@@ -439,6 +544,9 @@ public class Ranking extends TabActivity {
             text_name.setText( datas.get(position).getName() );
             text_score.setText( Integer.toString(datas.get(position).getScore()) );
             text_rank.setText( Integer.toString(datas.get(position).getRank()) );
+
+            ImageView profile = (ImageView) convertView.findViewById(R.id.profile);
+            profile.setImageResource(datas.get(position).getD());
 
             LinearLayout row = (LinearLayout) convertView.findViewById(R.id.layout_row);
             if(datas.get(position).getName()==player_name){
@@ -489,7 +597,6 @@ public class Ranking extends TabActivity {
                 convertView= inflater.inflate(R.layout.row, null);
             }
 
-            datas.get(position).setRank(position+1);
 
             TextView text_name= (TextView)convertView.findViewById(R.id.name);
             TextView text_score= (TextView)convertView.findViewById(R.id.score);
@@ -498,6 +605,9 @@ public class Ranking extends TabActivity {
             text_name.setText( datas.get(position).getName() );
             text_score.setText( Integer.toString(datas.get(position).getScore()) );
             text_rank.setText( Integer.toString(datas.get(position).getRank()) );
+
+            ImageView profile = (ImageView) convertView.findViewById(R.id.profile);
+            profile.setImageResource(datas.get(position).getD());
 
             LinearLayout row = (LinearLayout) convertView.findViewById(R.id.layout_row);
             if(datas.get(position).getName()==player_name){
@@ -548,7 +658,6 @@ public class Ranking extends TabActivity {
                 convertView= inflater.inflate(R.layout.row, null);
             }
 
-            datas.get(position).setRank(position+1);
 
             TextView text_name= (TextView)convertView.findViewById(R.id.name);
             TextView text_score= (TextView)convertView.findViewById(R.id.score);
@@ -557,6 +666,10 @@ public class Ranking extends TabActivity {
             text_name.setText( datas.get(position).getName() );
             text_score.setText( Integer.toString(datas.get(position).getScore()) );
             text_rank.setText( Integer.toString(datas.get(position).getRank()) );
+
+            ImageView profile = (ImageView) convertView.findViewById(R.id.profile);
+            profile.setImageResource(datas.get(position).getD());
+
 
             LinearLayout row = (LinearLayout) convertView.findViewById(R.id.layout_row);
             if(datas.get(position).getName()==player_name){
