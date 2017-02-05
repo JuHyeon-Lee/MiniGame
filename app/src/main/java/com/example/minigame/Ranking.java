@@ -312,7 +312,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_dudogi.remove(i);
-                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.meprofile));
+                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.basicprofile));
                 Collections.sort(datas_dudogi, new Ranking.NoDescCompare1());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -323,7 +323,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_dudogi.size()-1)){
 
-                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.meprofile));
+                datas_dudogi.add(new Scores_Dudogi(0, player_name, score_dudogi, R.drawable.basicprofile));
                 Collections.sort(datas_dudogi, new Ranking.NoDescCompare1());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -339,7 +339,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_waffle.remove(i);
-                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.meprofile));
+                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.basicprofile));
                 Collections.sort(datas_waffle, new Ranking.NoDescCompare2());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -350,7 +350,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_waffle.size()-1)){
 
-                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.meprofile));
+                datas_waffle.add(new Scores_Waffle(0, player_name, score_waffle, R.drawable.basicprofile));
                 Collections.sort(datas_waffle, new Ranking.NoDescCompare2());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -366,7 +366,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_card.remove(i);
-                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.meprofile));
+                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.basicprofile));
                 Collections.sort(datas_card, new Ranking.NoDescCompare3());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -377,7 +377,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_card.size()-1)){
 
-                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.meprofile));
+                datas_card.add(new Scores_Card(0, player_name, score_card, R.drawable.basicprofile));
                 Collections.sort(datas_card, new Ranking.NoDescCompare3());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -393,7 +393,7 @@ public class Ranking extends TabActivity {
             if(ft.getName()==player_name){
 
                 datas_muffin.remove(i);
-                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.meprofile));
+                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.basicprofile));
                 Collections.sort(datas_muffin, new Ranking.NoDescCompare4());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );
@@ -404,7 +404,7 @@ public class Ranking extends TabActivity {
             }
             else if(i==(datas_muffin.size()-1)){
 
-                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.meprofile));
+                datas_muffin.add(new Scores_Muffin(0, player_name, score_muffin, R.drawable.basicprofile));
                 Collections.sort(datas_muffin, new Ranking.NoDescCompare4());
 
                 LayoutInflater inflater = (LayoutInflater) getSystemService( Context.LAYOUT_INFLATER_SERVICE );

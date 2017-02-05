@@ -15,29 +15,108 @@
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/blank1"
-        android:layout_height="80dp" />
+        android:layout_height="130dp" />
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/name_player"
-        android:textSize="20sp"
-        android:textColor="#81000000"
-        android:hint="닉네임"
-        android:maxLength="5"
-        android:layout_width="65dp" />
-
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/blank2"
-        android:layout_height="20dp" />
+        android:layout_height="wrap_content">
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="#00ff0000"
-        app:srcCompat="@drawable/gamestart"
-        android:id="@+id/game_start" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/login_undone"
+            android:layout_gravity="center">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/id_login"
+                android:hint="아이디" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/pw_login"
+                android:hint="비밀번호" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <Button
+                    android:text="로그인"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="회원가입"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signin"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:id="@+id/login_done"
+            android:gravity="center">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="ID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name_main"
+                    android:textColor="#00ff0000"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="님 환영합니다!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView19"
+                    android:textColor="#00ff0000"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                app:srcCompat="@drawable/gamestart"
+                android:id="@+id/game_start"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="START"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#25b6d2"
+                android:textSize="20sp"
+                android:id="@+id/textView20"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
