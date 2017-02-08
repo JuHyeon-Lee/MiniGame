@@ -30,6 +30,8 @@ public class Scores_Dudogi implements Serializable {
         this.score = score;
     }
 
+    public void setD(int d) { this.d = d; }
+
     public int getRank(){
         return rank;
     }

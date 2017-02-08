@@ -2,6 +2,7 @@ package com.example.minigame;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,17 @@ public class GameSelect extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.name_games);
 
         name.setText(s);
+
+        SharedPreferences UserData = getSharedPreferences("PrivateScore", MODE_PRIVATE);
+        TextView highscore_dudogi = (TextView) findViewById(R.id.highscore_dudogi);
+        highscore_dudogi.setText(Integer.toString(UserData.getInt(s+"두더지", 0)));
+        TextView highscore_muffin = (TextView) findViewById(R.id.highscore_muffin);
+        highscore_muffin.setText(Integer.toString(UserData.getInt(s+"머핀", 0)));
+        TextView highscore_card = (TextView) findViewById(R.id.highscore_card);
+        highscore_card.setText(Integer.toString(UserData.getInt(s+"카드", 0)));
+        TextView highscore_waffle = (TextView) findViewById(R.id.highscore_waffle);
+        highscore_waffle.setText(Integer.toString(UserData.getInt(s+"와플", 0)));
+
 
         ///////////////////////////////////////////////////////////////////// 랭킹
 
@@ -178,12 +190,24 @@ public class GameSelect extends AppCompatActivity {
         else if("카드".equals(s)){
             TextView highscore_card = (TextView) findViewById(R.id.highscore_card);
             highscore_card.setText(Integer.toString(score));
-        }
+    }
         else if("와플".equals(s)){
             TextView highscore_waffle = (TextView) findViewById(R.id.highscore_waffle);
             highscore_waffle.setText(Integer.toString(score));
         }
         else;
+
+        SharedPreferences UserData = getSharedPreferences("PrivateScore", MODE_PRIVATE);
+        SharedPreferences.Editor editor = UserData.edit();
+        TextView highscore_muffin = (TextView) findViewById(R.id.highscore_muffin);
+        editor.putInt(s2+"머핀", Integer.valueOf(highscore_muffin.getText().toString()));
+        TextView highscore_dudogi = (TextView) findViewById(R.id.highscore_dudogi);
+        editor.putInt(s2+"두더지", Integer.valueOf(highscore_dudogi.getText().toString()));
+        TextView highscore_card = (TextView) findViewById(R.id.highscore_card);
+        editor.putInt(s2+"카드", Integer.valueOf(highscore_card.getText().toString()));
+        TextView highscore_waffle = (TextView) findViewById(R.id.highscore_waffle);
+        editor.putInt(s2+"와플", Integer.valueOf(highscore_waffle.getText().toString()));
+        editor.commit();
 
         BackgroundMusic.mp.start();
     }

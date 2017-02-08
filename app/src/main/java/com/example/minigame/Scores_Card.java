@@ -29,6 +29,8 @@ public class Scores_Card implements Serializable {
         this.score = score;
     }
 
+    public void setD(int d) { this.d = d; }
+
     public int getRank(){
         return rank;
     }

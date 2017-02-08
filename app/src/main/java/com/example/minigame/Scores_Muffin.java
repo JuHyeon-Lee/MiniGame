@@ -30,6 +30,8 @@ public class Scores_Muffin implements Serializable {
         this.score = score;
     }
 
+    public void setD(int d) { this.d = d; }
+
     public int getRank(){
         return rank;
     }
