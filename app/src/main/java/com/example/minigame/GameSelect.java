@@ -199,6 +199,7 @@ public class GameSelect extends AppCompatActivity {
 
         SharedPreferences UserData = getSharedPreferences("PrivateScore", MODE_PRIVATE);
         SharedPreferences.Editor editor = UserData.edit();
+
         TextView highscore_muffin = (TextView) findViewById(R.id.highscore_muffin);
         editor.putInt(s2+"머핀", Integer.valueOf(highscore_muffin.getText().toString()));
         TextView highscore_dudogi = (TextView) findViewById(R.id.highscore_dudogi);

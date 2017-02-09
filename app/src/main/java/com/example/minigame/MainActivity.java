@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -20,6 +21,8 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     public static boolean vibration = true;
+    public static boolean sound = true;
+
     public static Activity MA;
 
     boolean id_checked = false;
@@ -29,12 +32,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
 
+        final ImageButton next = (ImageButton) findViewById(R.id.game_start);
+        next.setVisibility(View.INVISIBLE);
+
+        SharedPreferences Setting = getSharedPreferences("Setting", MODE_PRIVATE);
+        sound = Setting.getBoolean("음악", true);
+        vibration = Setting.getBoolean("진동", true);
+
+        final SharedPreferences AutoLogin = getSharedPreferences("AutoLogin", MODE_PRIVATE);
+        if(AutoLogin.getBoolean("자동로그인", false)==true){
+            String user_id = AutoLogin.getString("자동아이디", "ERROR");
+            TextView name_main = (TextView) findViewById(R.id.name_main);
+            name_main.setText(user_id);
+
+            Toast toast = Toast.makeText(getApplicationContext(),user_id+"님 환영합니다!", Toast.LENGTH_SHORT);
+            toast.show();
+
+            LinearLayout undone = (LinearLayout) findViewById(R.id.login_undone);
+            LinearLayout done = (LinearLayout) findViewById(R.id.login_done);
+            undone.setVisibility(View.INVISIBLE);
+            done.setVisibility(View.VISIBLE);
+
+            next.setVisibility(View.VISIBLE);
+
+            CheckBox auto = (CheckBox) findViewById(R.id.autologin);
+            auto.setVisibility(View.INVISIBLE);
+        }
+
         MA=MainActivity.this;
 
-        Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
-        startService(intent0);
+        if(sound==true){
+            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
+            startService(intent0);
+        }
 
-        final ImageButton next = (ImageButton) findViewById(R.id.game_start);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        next.setVisibility(View.INVISIBLE);
 
         Button login = (Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +129,19 @@ public class MainActivity extends AppCompatActivity {
                         done.setVisibility(View.VISIBLE);
 
                         next.setVisibility(View.VISIBLE);
+
+                        SharedPreferences.Editor editor = AutoLogin.edit();
+                        CheckBox auto = (CheckBox) findViewById(R.id.autologin);
+                        if(auto.isChecked()==true){
+                            editor.putBoolean("자동로그인", true);
+                            editor.putString("자동아이디", user_id.getText().toString());
+                        }
+                        else
+                            editor.putBoolean("자동로그인", false);
+
+                        editor.commit();
+
+                        auto.setVisibility(View.INVISIBLE);
                     }
                 }
 

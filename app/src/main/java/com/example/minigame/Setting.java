@@ -2,6 +2,7 @@ package com.example.minigame;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -57,11 +58,19 @@ public class Setting extends AppCompatActivity {
         });
 
         Button clear_cache = (Button) findViewById(R.id.clear_cache);
-
         clear_cache.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearApplicationCache(null);
+
+                SharedPreferences AutoLogin = getSharedPreferences("AutoLogin", MODE_PRIVATE);
+                SharedPreferences.Editor editor = AutoLogin.edit();
+                editor.putBoolean("자동로그인", false);
+                editor.commit();
+
+                Intent intent = new Intent(Setting.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
             }
         });
 
@@ -131,6 +140,29 @@ public class Setting extends AppCompatActivity {
                 startActivity(it);
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        SharedPreferences Setting = getSharedPreferences("Setting", MODE_PRIVATE);
+        SharedPreferences.Editor editor = Setting.edit();
+
+        Button sound_on = (Button) findViewById(R.id.sound_on);
+        Button vibrate_on = (Button) findViewById(R.id.vibrate_on);
+
+        if(sound_on.getVisibility()==View.VISIBLE)
+            editor.putBoolean("음악", true);
+        else
+            editor.putBoolean("음악", false);
+
+        if(vibrate_on.getVisibility()==View.VISIBLE)
+            editor.putBoolean("진동", true);
+        else
+            editor.putBoolean("진동", false);
+
+        editor.commit();
+
+        super.onStop();
     }
 
     private void clearApplicationCache(java.io.File dir){
