@@ -65,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
             startService(intent0);
         }
+        else if(sound==false){
+            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
+            startService(intent0);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            stopService(intent0);
+        }
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
