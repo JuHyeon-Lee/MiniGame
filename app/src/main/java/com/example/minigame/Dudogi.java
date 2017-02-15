@@ -314,7 +314,10 @@ public class Dudogi extends AppCompatActivity {
 
     private void DialogView_Start(){
         AlertDialog.Builder alert_confirm = new AlertDialog.Builder(Dudogi.this);
-        alert_confirm.setMessage("두더지잡기").setCancelable(false).setPositiveButton("게임선택",
+        alert_confirm.setMessage("\n두더지잡기 : 게임설명\n\n" +
+                "게임이 시작되면 무작위로 튀어나오는 두더지를 잡아주세요! " +
+                "시간이 지날수록 더 많은 두더지가 튀어나옵니다!" +
+                "\n\n제한시간 30초\n").setCancelable(false).setPositiveButton("게임선택",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

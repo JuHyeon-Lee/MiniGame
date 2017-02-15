@@ -218,7 +218,7 @@ public class Muffin extends AppCompatActivity{
                 "먹기를 클릭하면 10점 획득\n" +
                 "화면에 보이는 그림이 똥일 경우\n" +
                 "버리기를 클릭하면 10점 획득\n" +
-                "반대로 클릭하면 10점 감점\n" +
+                "반대로 클릭하면 10점 감점\n\n" +
                 "제한시간 30초\n")
                 .setCancelable(false).setPositiveButton("게임선택",
                 new DialogInterface.OnClickListener() {
