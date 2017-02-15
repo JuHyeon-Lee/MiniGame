@@ -294,7 +294,7 @@ public class Muffin extends AppCompatActivity{
 
                         finish();
                     }
-                }).setNegativeButton("재시작",
+                }).setNegativeButton("다시하기",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
