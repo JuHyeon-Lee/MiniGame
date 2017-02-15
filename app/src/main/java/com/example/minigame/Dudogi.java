@@ -488,13 +488,13 @@ public class Dudogi extends AppCompatActivity {
 
                     dudogiHandler.sendEmptyMessage(0);
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(700);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     dudogiHandler2.sendEmptyMessage(0);
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(300);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

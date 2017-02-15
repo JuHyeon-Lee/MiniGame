@@ -51,12 +51,12 @@ public class Ranking extends TabActivity {
                 .setContent(R.id.tab_muffin));
 
         tabHost.addTab(tabHost.newTabSpec("tab3")
-                .setIndicator("와플")
-                .setContent(R.id.tab_waffle));
-
-        tabHost.addTab(tabHost.newTabSpec("tab4")
                 .setIndicator("카드")
                 .setContent(R.id.tab_card));
+
+        tabHost.addTab(tabHost.newTabSpec("tab4")
+                .setIndicator("X")
+                .setContent(R.id.tab_waffle));
 
         tabHost.getTabWidget().getChildAt(0)
                 .setBackgroundColor(Color.parseColor("#9925b6d2"));

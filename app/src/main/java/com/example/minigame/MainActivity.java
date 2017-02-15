@@ -39,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
         sound = Setting.getBoolean("음악", true);
         vibration = Setting.getBoolean("진동", true);
 
+        if(sound==true){
+            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
+            startService(intent0);
+        }
+        else if(sound==false){
+            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
+            startService(intent0);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            stopService(intent0);
+        }
+
         final SharedPreferences AutoLogin = getSharedPreferences("AutoLogin", MODE_PRIVATE);
         if(AutoLogin.getBoolean("자동로그인", false)==true){
             String user_id = AutoLogin.getString("자동아이디", "ERROR");
@@ -57,24 +72,17 @@ public class MainActivity extends AppCompatActivity {
 
             CheckBox auto = (CheckBox) findViewById(R.id.autologin);
             auto.setVisibility(View.INVISIBLE);
+
+            Intent intent = new Intent(MainActivity.this, GameSelect.class);
+
+            String name = name_main.getText().toString();
+
+            intent.putExtra("이름", name);
+
+            startActivity(intent);
         }
 
         MA=MainActivity.this;
-
-        if(sound==true){
-            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
-            startService(intent0);
-        }
-        else if(sound==false){
-            Intent intent0 = new Intent(MainActivity.this, BackgroundMusic.class);
-            startService(intent0);
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            stopService(intent0);
-        }
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,13 +141,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(),user_id.getText().toString()+"님 환영합니다!", Toast.LENGTH_SHORT);
                         toast.show();
 
-                        LinearLayout undone = (LinearLayout) findViewById(R.id.login_undone);
-                        LinearLayout done = (LinearLayout) findViewById(R.id.login_done);
-                        undone.setVisibility(View.INVISIBLE);
-                        done.setVisibility(View.VISIBLE);
-
-                        next.setVisibility(View.VISIBLE);
-
                         SharedPreferences.Editor editor = AutoLogin.edit();
                         CheckBox auto = (CheckBox) findViewById(R.id.autologin);
                         if(auto.isChecked()==true){
@@ -151,7 +152,13 @@ public class MainActivity extends AppCompatActivity {
 
                         editor.commit();
 
-                        auto.setVisibility(View.INVISIBLE);
+                        Intent intent = new Intent(MainActivity.this, GameSelect.class);
+
+                        String name = name_main.getText().toString();
+
+                        intent.putExtra("이름", name);
+
+                        startActivity(intent);
                     }
                 }
 
