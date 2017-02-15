@@ -224,7 +224,10 @@ public class Card extends AppCompatActivity {
 
     private void DialogView_Start(){
         AlertDialog.Builder alert_confirm = new AlertDialog.Builder(Card.this);
-        alert_confirm.setMessage("짝맞추기 : 게임설명").setCancelable(false).setPositiveButton("게임선택",
+        alert_confirm.setMessage("\n짝맞추기 : 게임설명\n\n" +
+                "같은 그림인 카드끼리 짝을 맞추면 없어집니다. " +
+                "제한시간 내에 최대한 많이 맞춰보세요! " +
+                "\n\n제한시간 30초\n").setCancelable(false).setPositiveButton("게임선택",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

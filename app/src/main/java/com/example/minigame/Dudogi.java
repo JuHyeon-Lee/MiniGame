@@ -26,6 +26,8 @@ public class Dudogi extends AppCompatActivity {
     boolean wait_thread = false;
 
     final playGame thread_playGame = new playGame();
+    final playGame2 thread_playGame2 = new playGame2();
+    final playGame3 thread_playGame3 = new playGame3();
     int rndnum;
     int rndnum2;
     int rndnum3;
@@ -352,6 +354,8 @@ public class Dudogi extends AppCompatActivity {
                         thread_startGame.start();
                         thread_endGame.start();
                         thread_playGame.start();
+                        thread_playGame2.start();
+                        thread_playGame3.start();
                         rndnum=0;
                         rndnum2=0;
                         rndnum3=0;
@@ -398,6 +402,32 @@ public class Dudogi extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
+                        ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
+                        ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
+                        ImageView button4 = (ImageView) findViewById(R.id.dudogi4);
+                        ImageView button5 = (ImageView) findViewById(R.id.dudogi5);
+                        ImageView button6 = (ImageView) findViewById(R.id.dudogi6);
+                        ImageView button7 = (ImageView) findViewById(R.id.dudogi7);
+                        ImageView button8 = (ImageView) findViewById(R.id.dudogi8);
+                        ImageView button9 = (ImageView) findViewById(R.id.dudogi9);
+                        ImageView button10 = (ImageView) findViewById(R.id.dudogi10);
+                        ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
+                        ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
+
+                        button1.setVisibility(View.INVISIBLE);
+                        button2.setVisibility(View.INVISIBLE);
+                        button3.setVisibility(View.INVISIBLE);
+                        button4.setVisibility(View.INVISIBLE);
+                        button5.setVisibility(View.INVISIBLE);
+                        button6.setVisibility(View.INVISIBLE);
+                        button7.setVisibility(View.INVISIBLE);
+                        button8.setVisibility(View.INVISIBLE);
+                        button9.setVisibility(View.INVISIBLE);
+                        button10.setVisibility(View.INVISIBLE);
+                        button11.setVisibility(View.INVISIBLE);
+                        button12.setVisibility(View.INVISIBLE);
+
                         wait_thread=false;
                         cnt=30;
                         TextView time = (TextView) findViewById(R.id.time_dudogi);
@@ -479,13 +509,14 @@ public class Dudogi extends AppCompatActivity {
                 while (wait_thread == false) {
 
                     Random rnd = new Random();
-                    if(cnt<31)
-                        rndnum = rnd.nextInt(12)+1;
-                    if(cnt<20)
-                        rndnum2 = rnd.nextInt(12)+1;
-                    if(cnt<10)
-                        rndnum3 = rnd.nextInt(12)+1;
 
+                    rndnum = rnd.nextInt(12)+1;
+
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     dudogiHandler.sendEmptyMessage(0);
                     try {
                         Thread.sleep(700);
@@ -493,6 +524,68 @@ public class Dudogi extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     dudogiHandler2.sendEmptyMessage(0);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+    }
+
+    private class playGame2 extends Thread{
+        public void run(){
+
+            while(finish_thread==false) {
+                while (wait_thread == false) {
+
+                    Random rnd = new Random();
+
+                    rndnum2 = rnd.nextInt(12)+1;
+
+                    dudogiHandler3.sendEmptyMessage(0);
+                    try {
+                        Thread.sleep(700);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    dudogiHandler4.sendEmptyMessage(0);
+                    try {
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+    }
+
+    private class playGame3 extends Thread{
+        public void run(){
+
+            while(finish_thread==false) {
+                while (wait_thread == false) {
+
+                    Random rnd = new Random();
+
+                    rndnum3 = rnd.nextInt(12)+1;
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    dudogiHandler5.sendEmptyMessage(0);
+                    try {
+                        Thread.sleep(700);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    dudogiHandler6.sendEmptyMessage(0);
                     try {
                         Thread.sleep(300);
                     } catch (InterruptedException e) {
@@ -522,29 +615,29 @@ public class Dudogi extends AppCompatActivity {
             ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
             ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
 
-            if(rndnum==1||rndnum2==1||rndnum3==1)
+            if(rndnum==1)
                 button1.setVisibility(View.VISIBLE);
-            if(rndnum==2||rndnum2==2||rndnum3==2)
+            if(rndnum==2)
                 button2.setVisibility(View.VISIBLE);
-            if(rndnum==3||rndnum2==3||rndnum3==3)
+            if(rndnum==3)
                 button3.setVisibility(View.VISIBLE);
-            if(rndnum==4||rndnum2==4||rndnum3==4)
+            if(rndnum==4)
                 button4.setVisibility(View.VISIBLE);
-            if(rndnum==5||rndnum2==5||rndnum3==5)
+            if(rndnum==5)
                 button5.setVisibility(View.VISIBLE);
-            if(rndnum==6||rndnum2==6||rndnum3==6)
+            if(rndnum==6)
                 button6.setVisibility(View.VISIBLE);
-            if(rndnum==7||rndnum2==7||rndnum3==7)
+            if(rndnum==7)
                 button7.setVisibility(View.VISIBLE);
-            if(rndnum==8||rndnum2==8||rndnum3==8)
+            if(rndnum==8)
                 button8.setVisibility(View.VISIBLE);
-            if(rndnum==9||rndnum2==9||rndnum3==9)
+            if(rndnum==9)
                 button9.setVisibility(View.VISIBLE);
-            if(rndnum==10||rndnum2==10||rndnum3==10)
+            if(rndnum==10)
                 button10.setVisibility(View.VISIBLE);
-            if(rndnum==11||rndnum2==11||rndnum3==11)
+            if(rndnum==11)
                 button11.setVisibility(View.VISIBLE);
-            if(rndnum==12||rndnum2==12||rndnum3==12)
+            if(rndnum==12)
                 button12.setVisibility(View.VISIBLE);
         }
     };
@@ -553,6 +646,7 @@ public class Dudogi extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+
             ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
             ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
             ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
@@ -566,29 +660,209 @@ public class Dudogi extends AppCompatActivity {
             ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
             ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
 
-            if(rndnum==1||rndnum2==1||rndnum3==1)
+            if(rndnum==1)
                 button1.setVisibility(View.INVISIBLE);
-            if(rndnum==2||rndnum2==2||rndnum3==2)
+            if(rndnum==2)
                 button2.setVisibility(View.INVISIBLE);
-            if(rndnum==3||rndnum2==3||rndnum3==3)
+            if(rndnum==3)
                 button3.setVisibility(View.INVISIBLE);
-            if(rndnum==4||rndnum2==4||rndnum3==4)
+            if(rndnum==4)
                 button4.setVisibility(View.INVISIBLE);
-            if(rndnum==5||rndnum2==5||rndnum3==5)
+            if(rndnum==5)
                 button5.setVisibility(View.INVISIBLE);
-            if(rndnum==6||rndnum2==6||rndnum3==6)
+            if(rndnum==6)
                 button6.setVisibility(View.INVISIBLE);
-            if(rndnum==7||rndnum2==7||rndnum3==7)
+            if(rndnum==7)
                 button7.setVisibility(View.INVISIBLE);
-            if(rndnum==8||rndnum2==8||rndnum3==8)
+            if(rndnum==8)
                 button8.setVisibility(View.INVISIBLE);
-            if(rndnum==9||rndnum2==9||rndnum3==9)
+            if(rndnum==9)
                 button9.setVisibility(View.INVISIBLE);
-            if(rndnum==10||rndnum2==10||rndnum3==10)
+            if(rndnum==10)
                 button10.setVisibility(View.INVISIBLE);
-            if(rndnum==11||rndnum2==11||rndnum3==11)
+            if(rndnum==11)
                 button11.setVisibility(View.INVISIBLE);
-            if(rndnum==12||rndnum2==12||rndnum3==12)
+            if(rndnum==12)
+                button12.setVisibility(View.INVISIBLE);
+        }
+    };
+
+    private Handler dudogiHandler3 = new Handler (){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
+            ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
+            ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
+            ImageView button4 = (ImageView) findViewById(R.id.dudogi4);
+            ImageView button5 = (ImageView) findViewById(R.id.dudogi5);
+            ImageView button6 = (ImageView) findViewById(R.id.dudogi6);
+            ImageView button7 = (ImageView) findViewById(R.id.dudogi7);
+            ImageView button8 = (ImageView) findViewById(R.id.dudogi8);
+            ImageView button9 = (ImageView) findViewById(R.id.dudogi9);
+            ImageView button10 = (ImageView) findViewById(R.id.dudogi10);
+            ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
+            ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
+
+            if(rndnum2==1)
+                button1.setVisibility(View.VISIBLE);
+            if(rndnum2==2)
+                button2.setVisibility(View.VISIBLE);
+            if(rndnum2==3)
+                button3.setVisibility(View.VISIBLE);
+            if(rndnum2==4)
+                button4.setVisibility(View.VISIBLE);
+            if(rndnum2==5)
+                button5.setVisibility(View.VISIBLE);
+            if(rndnum2==6)
+                button6.setVisibility(View.VISIBLE);
+            if(rndnum2==7)
+                button7.setVisibility(View.VISIBLE);
+            if(rndnum2==8)
+                button8.setVisibility(View.VISIBLE);
+            if(rndnum2==9)
+                button9.setVisibility(View.VISIBLE);
+            if(rndnum2==10)
+                button10.setVisibility(View.VISIBLE);
+            if(rndnum2==11)
+                button11.setVisibility(View.VISIBLE);
+            if(rndnum2==12)
+                button12.setVisibility(View.VISIBLE);
+        }
+    };
+
+    private Handler dudogiHandler4 = new Handler (){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
+            ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
+            ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
+            ImageView button4 = (ImageView) findViewById(R.id.dudogi4);
+            ImageView button5 = (ImageView) findViewById(R.id.dudogi5);
+            ImageView button6 = (ImageView) findViewById(R.id.dudogi6);
+            ImageView button7 = (ImageView) findViewById(R.id.dudogi7);
+            ImageView button8 = (ImageView) findViewById(R.id.dudogi8);
+            ImageView button9 = (ImageView) findViewById(R.id.dudogi9);
+            ImageView button10 = (ImageView) findViewById(R.id.dudogi10);
+            ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
+            ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
+
+            if(rndnum2==1)
+                button1.setVisibility(View.INVISIBLE);
+            if(rndnum2==2)
+                button2.setVisibility(View.INVISIBLE);
+            if(rndnum2==3)
+                button3.setVisibility(View.INVISIBLE);
+            if(rndnum2==4)
+                button4.setVisibility(View.INVISIBLE);
+            if(rndnum2==5)
+                button5.setVisibility(View.INVISIBLE);
+            if(rndnum2==6)
+                button6.setVisibility(View.INVISIBLE);
+            if(rndnum2==7)
+                button7.setVisibility(View.INVISIBLE);
+            if(rndnum2==8)
+                button8.setVisibility(View.INVISIBLE);
+            if(rndnum2==9)
+                button9.setVisibility(View.INVISIBLE);
+            if(rndnum2==10)
+                button10.setVisibility(View.INVISIBLE);
+            if(rndnum2==11)
+                button11.setVisibility(View.INVISIBLE);
+            if(rndnum2==12)
+                button12.setVisibility(View.INVISIBLE);
+        }
+    };
+
+    private Handler dudogiHandler5 = new Handler (){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
+            ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
+            ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
+            ImageView button4 = (ImageView) findViewById(R.id.dudogi4);
+            ImageView button5 = (ImageView) findViewById(R.id.dudogi5);
+            ImageView button6 = (ImageView) findViewById(R.id.dudogi6);
+            ImageView button7 = (ImageView) findViewById(R.id.dudogi7);
+            ImageView button8 = (ImageView) findViewById(R.id.dudogi8);
+            ImageView button9 = (ImageView) findViewById(R.id.dudogi9);
+            ImageView button10 = (ImageView) findViewById(R.id.dudogi10);
+            ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
+            ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
+
+            if(rndnum3==1)
+                button1.setVisibility(View.VISIBLE);
+            if(rndnum3==2)
+                button2.setVisibility(View.VISIBLE);
+            if(rndnum3==3)
+                button3.setVisibility(View.VISIBLE);
+            if(rndnum3==4)
+                button4.setVisibility(View.VISIBLE);
+            if(rndnum3==5)
+                button5.setVisibility(View.VISIBLE);
+            if(rndnum3==6)
+                button6.setVisibility(View.VISIBLE);
+            if(rndnum3==7)
+                button7.setVisibility(View.VISIBLE);
+            if(rndnum3==8)
+                button8.setVisibility(View.VISIBLE);
+            if(rndnum3==9)
+                button9.setVisibility(View.VISIBLE);
+            if(rndnum3==10)
+                button10.setVisibility(View.VISIBLE);
+            if(rndnum3==11)
+                button11.setVisibility(View.VISIBLE);
+            if(rndnum3==12)
+                button12.setVisibility(View.VISIBLE);
+        }
+    };
+
+    private Handler dudogiHandler6 = new Handler (){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
+            ImageView button2 = (ImageView) findViewById(R.id.dudogi2);
+            ImageView button3 = (ImageView) findViewById(R.id.dudogi3);
+            ImageView button4 = (ImageView) findViewById(R.id.dudogi4);
+            ImageView button5 = (ImageView) findViewById(R.id.dudogi5);
+            ImageView button6 = (ImageView) findViewById(R.id.dudogi6);
+            ImageView button7 = (ImageView) findViewById(R.id.dudogi7);
+            ImageView button8 = (ImageView) findViewById(R.id.dudogi8);
+            ImageView button9 = (ImageView) findViewById(R.id.dudogi9);
+            ImageView button10 = (ImageView) findViewById(R.id.dudogi10);
+            ImageView button11 = (ImageView) findViewById(R.id.dudogi11);
+            ImageView button12 = (ImageView) findViewById(R.id.dudogi12);
+
+            if(rndnum3==1)
+                button1.setVisibility(View.INVISIBLE);
+            if(rndnum3==2)
+                button2.setVisibility(View.INVISIBLE);
+            if(rndnum3==3)
+                button3.setVisibility(View.INVISIBLE);
+            if(rndnum3==4)
+                button4.setVisibility(View.INVISIBLE);
+            if(rndnum3==5)
+                button5.setVisibility(View.INVISIBLE);
+            if(rndnum3==6)
+                button6.setVisibility(View.INVISIBLE);
+            if(rndnum3==7)
+                button7.setVisibility(View.INVISIBLE);
+            if(rndnum3==8)
+                button8.setVisibility(View.INVISIBLE);
+            if(rndnum3==9)
+                button9.setVisibility(View.INVISIBLE);
+            if(rndnum3==10)
+                button10.setVisibility(View.INVISIBLE);
+            if(rndnum3==11)
+                button11.setVisibility(View.INVISIBLE);
+            if(rndnum3==12)
                 button12.setVisibility(View.INVISIBLE);
         }
     };
