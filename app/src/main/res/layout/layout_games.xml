@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/gameselect"
-        android:id="@+id/imageView" />
+        android:id="@+id/icon_select" />
 
     <GridLayout
         android:layout_width="wrap_content"

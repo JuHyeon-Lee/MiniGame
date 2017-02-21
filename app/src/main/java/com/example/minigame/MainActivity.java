@@ -7,10 +7,13 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
+
+        ImageView icon_game = (ImageView) findViewById(R.id.icon_game);
+        Animation floating = AnimationUtils.loadAnimation(this, R.anim.floating);
+        icon_game.startAnimation(floating);
 
         final ImageButton next = (ImageButton) findViewById(R.id.game_start);
         next.setVisibility(View.INVISIBLE);

@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class GameSelect extends AppCompatActivity {
@@ -25,6 +28,10 @@ public class GameSelect extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.name_games);
 
         name.setText(s);
+
+        ImageView icon_select = (ImageView) findViewById(R.id.icon_select);
+        Animation floating = AnimationUtils.loadAnimation(this, R.anim.floating);
+        icon_select.startAnimation(floating);
 
         SharedPreferences UserData = getSharedPreferences("PrivateScore", MODE_PRIVATE);
         TextView highscore_dudogi = (TextView) findViewById(R.id.highscore_dudogi);

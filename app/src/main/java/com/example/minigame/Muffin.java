@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,18 +65,25 @@ public class Muffin extends AppCompatActivity{
                 TextView score = (TextView) findViewById(R.id.score_muffin);
                 score1=Integer.valueOf(score.getText().toString());
 
+                Animation move_down = AnimationUtils.loadAnimation(Muffin.this, R.anim.disappear);
+                Animation size_down = AnimationUtils.loadAnimation(Muffin.this, R.anim.size_down);
+
                 if(muffin.getVisibility()==View.VISIBLE){
                     wrong.setVisibility(View.INVISIBLE);
                     correct.setVisibility(View.VISIBLE);
+                    correct.startAnimation(move_down);
                     score1+=10;
                 }
                 else if(shit.getVisibility()==View.VISIBLE){
                     correct.setVisibility(View.INVISIBLE);
                     wrong.setVisibility(View.VISIBLE);
+                    wrong.startAnimation(move_down);
                     score1-=10;
                 }
 
                 score.setText(String.valueOf(score1));
+
+                score.startAnimation(size_down);
 
                 rndnum = rnd.nextInt(2);
 
@@ -110,18 +119,24 @@ public class Muffin extends AppCompatActivity{
                 TextView score = (TextView) findViewById(R.id.score_muffin);
                 score1=Integer.valueOf(score.getText().toString());
 
+                Animation move_down = AnimationUtils.loadAnimation(Muffin.this, R.anim.disappear);
+                Animation size_down = AnimationUtils.loadAnimation(Muffin.this, R.anim.size_down);
+
                 if(muffin.getVisibility()==View.VISIBLE){
                     wrong.setVisibility(View.VISIBLE);
                     correct.setVisibility(View.INVISIBLE);
+                    wrong.startAnimation(move_down);
                     score1-=10;
                 }
                 else if(shit.getVisibility()==View.VISIBLE){
                     correct.setVisibility(View.VISIBLE);
                     wrong.setVisibility(View.INVISIBLE);
+                    correct.startAnimation(move_down);
                     score1+=10;
                 }
 
                 score.setText(String.valueOf(score1));
+                score.startAnimation(size_down);
 
                 rndnum = rnd.nextInt(2);
 

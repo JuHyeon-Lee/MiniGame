@@ -10,8 +10,11 @@ import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -44,6 +47,19 @@ public class Dudogi extends AppCompatActivity {
 
         final Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
+        final ImageView hammer1 = (ImageView) findViewById(R.id.hammer1);
+        final ImageView hammer2 = (ImageView) findViewById(R.id.hammer2);
+        final ImageView hammer3 = (ImageView) findViewById(R.id.hammer3);
+        final ImageView hammer4 = (ImageView) findViewById(R.id.hammer4);
+        final ImageView hammer5 = (ImageView) findViewById(R.id.hammer5);
+        final ImageView hammer6 = (ImageView) findViewById(R.id.hammer6);
+        final ImageView hammer7 = (ImageView) findViewById(R.id.hammer7);
+        final ImageView hammer8 = (ImageView) findViewById(R.id.hammer8);
+        final ImageView hammer9 = (ImageView) findViewById(R.id.hammer9);
+        final ImageView hammer10 = (ImageView) findViewById(R.id.hammer10);
+        final ImageView hammer11 = (ImageView) findViewById(R.id.hammer11);
+        final ImageView hammer12 = (ImageView) findViewById(R.id.hammer12);
+
         ImageView button1 = (ImageView) findViewById(R.id.dudogi1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +72,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer1.setVisibility(View.VISIBLE);
+                hammer1.bringToFront();
+                hammer1.startAnimation(hammer_left);
             }
         });
 
@@ -71,6 +93,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer2.setVisibility(View.VISIBLE);
+                hammer2.bringToFront();
+                hammer2.startAnimation(hammer_left);
             }
         });
 
@@ -86,6 +114,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_right = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_right);
+
+                hammer3.setVisibility(View.VISIBLE);
+                hammer3.bringToFront();
+                hammer3.startAnimation(hammer_right);
             }
         });
 
@@ -101,6 +135,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer4.setVisibility(View.VISIBLE);
+                hammer4.bringToFront();
+                hammer4.startAnimation(hammer_left);
             }
         });
 
@@ -116,6 +156,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer5.setVisibility(View.VISIBLE);
+                hammer5.bringToFront();
+                hammer5.startAnimation(hammer_left);
             }
         });
 
@@ -131,6 +177,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_right = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_right);
+
+                hammer6.setVisibility(View.VISIBLE);
+                hammer6.bringToFront();
+                hammer6.startAnimation(hammer_right);
             }
         });
 
@@ -146,6 +198,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer7.setVisibility(View.VISIBLE);
+                hammer7.bringToFront();
+                hammer7.startAnimation(hammer_left);
             }
         });
 
@@ -161,6 +219,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer8.setVisibility(View.VISIBLE);
+                hammer8.bringToFront();
+                hammer8.startAnimation(hammer_left);
             }
         });
 
@@ -176,6 +240,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_right = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_right);
+
+                hammer9.setVisibility(View.VISIBLE);
+                hammer9.bringToFront();
+                hammer9.startAnimation(hammer_right);
             }
         });
 
@@ -191,6 +261,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer10.setVisibility(View.VISIBLE);
+                hammer10.bringToFront();
+                hammer10.startAnimation(hammer_left);
             }
         });
 
@@ -206,6 +282,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_left = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_left);
+
+                hammer11.setVisibility(View.VISIBLE);
+                hammer11.bringToFront();
+                hammer11.startAnimation(hammer_left);
             }
         });
 
@@ -221,6 +303,12 @@ public class Dudogi extends AppCompatActivity {
                 score1 = Integer.valueOf(score.getText().toString());
                 score1+=10;
                 score.setText(Integer.toString(score1));
+
+                Animation hammer_right = AnimationUtils.loadAnimation(Dudogi.this, R.anim.hammer_right);
+
+                hammer12.setVisibility(View.VISIBLE);
+                hammer12.bringToFront();
+                hammer12.startAnimation(hammer_right);
             }
         });
 
@@ -241,6 +329,9 @@ public class Dudogi extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        RelativeLayout layout_hammer = (RelativeLayout) findViewById(R.id.layout_hammer);
+        layout_hammer.bringToFront();
 
         Intent intent1 = getIntent();
         String s = intent1.getStringExtra("이름");
