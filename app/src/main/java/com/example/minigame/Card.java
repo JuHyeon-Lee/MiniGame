@@ -657,7 +657,20 @@ public class Card extends AppCompatActivity {
                                 if(MainActivity.vibration==true)
                                     vibe.vibrate(100);
                                 handler_card.sendEmptyMessage(0);
-                                handler_score.sendEmptyMessage(0);
+
+                                TextView score = (TextView) findViewById(R.id.score_card);
+                                int score1 = Integer.valueOf(score.getText().toString());
+                                if((score1+10)%60==0){
+                                    try {
+                                        Thread.sleep(300);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    handler_score.sendEmptyMessage(0);
+                                }
+                                else
+                                    handler_score.sendEmptyMessage(0);
+
                                 try {
                                     Thread.sleep(10);
                                 } catch (InterruptedException e) {
@@ -686,6 +699,7 @@ public class Card extends AppCompatActivity {
             score.setText(Integer.toString(score1));
 
             if(score1%60==0){
+
                 ImageView card1 = (ImageView) findViewById(R.id.card1);
                 ImageView card2 = (ImageView) findViewById(R.id.card2);
                 ImageView card3 = (ImageView) findViewById(R.id.card3);
