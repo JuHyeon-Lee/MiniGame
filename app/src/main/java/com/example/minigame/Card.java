@@ -639,6 +639,8 @@ public class Card extends AppCompatActivity {
         }
     }
 
+    int score1;
+
     private class playGame extends Thread{
         public void run() {
 
@@ -659,8 +661,9 @@ public class Card extends AppCompatActivity {
                                 handler_card.sendEmptyMessage(0);
 
                                 TextView score = (TextView) findViewById(R.id.score_card);
-                                int score1 = Integer.valueOf(score.getText().toString());
-                                if((score1+10)%60==0){
+                                score1 = Integer.valueOf(score.getText().toString());
+                                score1+=10;
+                                if(score1%60==0){
                                     try {
                                         Thread.sleep(300);
                                     } catch (InterruptedException e) {
@@ -692,10 +695,7 @@ public class Card extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            int score1;
             TextView score = (TextView) findViewById(R.id.score_card);
-            score1 = Integer.valueOf(score.getText().toString());
-            score1+=10;
             score.setText(Integer.toString(score1));
 
             if(score1%60==0){

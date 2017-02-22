@@ -1,10 +1,12 @@
 package com.example.minigame;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -56,36 +58,50 @@ public class Waffle extends AppCompatActivity {
         layout_pickaxe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int score1 = Integer.valueOf(score_waffle.getText().toString());
                 score1+=1;
                 score_waffle.setText(Integer.toString(score1));
 
+                Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if(MainActivity.vibration==true)
+                    vibe.vibrate(10);
+
                 Animation size_down = AnimationUtils.loadAnimation(Waffle.this, R.anim.size_down);
                 score_waffle.startAnimation(size_down);
 
-                if(Integer.valueOf(score_waffle.getText().toString())>=0){
+                if(Integer.valueOf(score_waffle.getText().toString())<49){
                     stone1.setVisibility(View.VISIBLE);
                     stone2.setVisibility(View.INVISIBLE);
                     stone3.setVisibility(View.INVISIBLE);
                     stone4.setVisibility(View.INVISIBLE);
+
+                    Animation vibrate = AnimationUtils.loadAnimation(Waffle.this, R.anim.vibrate);
+                    stone1.startAnimation(vibrate);
                 }
-                if(Integer.valueOf(score_waffle.getText().toString())>49){
+                else if(Integer.valueOf(score_waffle.getText().toString())<99){
                     stone1.setVisibility(View.INVISIBLE);
                     stone2.setVisibility(View.VISIBLE);
                     stone3.setVisibility(View.INVISIBLE);
                     stone4.setVisibility(View.INVISIBLE);
+                    Animation vibrate = AnimationUtils.loadAnimation(Waffle.this, R.anim.vibrate);
+                    stone2.startAnimation(vibrate);
                 }
-                if(Integer.valueOf(score_waffle.getText().toString())>99){
+                else if(Integer.valueOf(score_waffle.getText().toString())<199){
                     stone1.setVisibility(View.INVISIBLE);
                     stone2.setVisibility(View.INVISIBLE);
                     stone3.setVisibility(View.VISIBLE);
                     stone4.setVisibility(View.INVISIBLE);
+                    Animation vibrate = AnimationUtils.loadAnimation(Waffle.this, R.anim.vibrate);
+                    stone3.startAnimation(vibrate);
                 }
-                if(Integer.valueOf(score_waffle.getText().toString())>199){
+                else if(Integer.valueOf(score_waffle.getText().toString())<999){
                     stone1.setVisibility(View.INVISIBLE);
                     stone2.setVisibility(View.INVISIBLE);
                     stone3.setVisibility(View.INVISIBLE);
                     stone4.setVisibility(View.VISIBLE);
+                    Animation vibrate = AnimationUtils.loadAnimation(Waffle.this, R.anim.vibrate);
+                    stone4.startAnimation(vibrate);
                 }
 
                 int num = rnd.nextInt(4);
@@ -157,7 +173,7 @@ public class Waffle extends AppCompatActivity {
         wait_thread=true;
 
         AlertDialog.Builder alert_confirm = new AlertDialog.Builder(Waffle.this);
-        alert_confirm.setMessage("일시정지").setCancelable(false).setPositiveButton("게임선택으로",
+        alert_confirm.setMessage("일시정지").setCancelable(false).setPositiveButton("게임선택",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
