@@ -55,7 +55,7 @@ public class Ranking extends TabActivity {
                 .setContent(R.id.tab_card));
 
         tabHost.addTab(tabHost.newTabSpec("tab4")
-                .setIndicator("X")
+                .setIndicator("바위깨기")
                 .setContent(R.id.tab_waffle));
 
         tabHost.getTabWidget().getChildAt(0)

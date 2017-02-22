@@ -156,18 +156,18 @@ public class GameSelect extends AppCompatActivity {
         play_waffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent2 = new Intent(GameSelect.this, Waffle.class);
-//
-//                TextView name = (TextView) findViewById(R.id.name_games);
-//                String s = name.getText().toString();
-//                intent2.putExtra("이름", s);
-//
-//                TextView highscore = (TextView) findViewById(R.id.highscore_waffle);
-//                intent2.putExtra("최고점수", Integer.valueOf(highscore.getText().toString()));
-//
-//                startActivity(intent2);
-//
-//                finish();
+                Intent intent2 = new Intent(GameSelect.this, Waffle.class);
+
+                TextView name = (TextView) findViewById(R.id.name_games);
+                String s = name.getText().toString();
+                intent2.putExtra("이름", s);
+
+                TextView highscore = (TextView) findViewById(R.id.highscore_waffle);
+                intent2.putExtra("최고점수", Integer.valueOf(highscore.getText().toString()));
+
+                startActivity(intent2);
+
+                finish();
             }
         });
 

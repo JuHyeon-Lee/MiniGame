@@ -11,6 +11,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -734,33 +736,59 @@ public class Card extends AppCompatActivity {
             ImageView card11 = (ImageView) findViewById(R.id.card11);
             ImageView card12 = (ImageView) findViewById(R.id.card12);
 
+            Animation smaller = AnimationUtils.loadAnimation(Card.this, R.anim.smaller);
+
             for(int i=0 ; i<12 ; i++){
 
                 if(card[i]==click[cnt1-2]){
-                    if(i==0)
+                    if(i==0){
+                        card1.startAnimation(smaller);
                         card1.setVisibility(View.INVISIBLE);
-                    if(i==1)
+                    }
+                    if(i==1){
+                        card2.startAnimation(smaller);
                         card2.setVisibility(View.INVISIBLE);
-                    if(i==2)
+                    }
+                    if(i==2){
+                        card3.startAnimation(smaller);
                         card3.setVisibility(View.INVISIBLE);
-                    if(i==3)
+                    }
+                    if(i==3){
+                        card4.startAnimation(smaller);
                         card4.setVisibility(View.INVISIBLE);
-                    if(i==4)
+                    }
+                    if(i==4){
+                        card5.startAnimation(smaller);
                         card5.setVisibility(View.INVISIBLE);
-                    if(i==5)
+                    }
+                    if(i==5){
+                        card6.startAnimation(smaller);
                         card6.setVisibility(View.INVISIBLE);
-                    if(i==6)
+                    }
+                    if(i==6){
+                        card7.startAnimation(smaller);
                         card7.setVisibility(View.INVISIBLE);
-                    if(i==7)
+                    }
+                    if(i==7){
+                        card8.startAnimation(smaller);
                         card8.setVisibility(View.INVISIBLE);
-                    if(i==8)
+                    }
+                    if(i==8){
+                        card9.startAnimation(smaller);
                         card9.setVisibility(View.INVISIBLE);
-                    if(i==9)
+                    }
+                    if(i==9){
+                        card10.startAnimation(smaller);
                         card10.setVisibility(View.INVISIBLE);
-                    if(i==10)
+                    }
+                    if(i==10){
+                        card11.startAnimation(smaller);
                         card11.setVisibility(View.INVISIBLE);
-                    if(i==11)
+                    }
+                    if(i==11){
+                        card12.startAnimation(smaller);
                         card12.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
 

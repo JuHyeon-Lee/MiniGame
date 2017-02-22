@@ -85,7 +85,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/play_waffle"
-            android:background="@drawable/wrong"
+            android:background="@drawable/stone"
             android:layout_row="3"
             android:layout_column="2" />
 
