@@ -70,6 +70,7 @@ public class GameSelect extends AppCompatActivity {
                 intent2.putExtra("머핀점수", Integer.valueOf(score_muffin.getText().toString()));
 
                 startActivity(intent2);
+                overridePendingTransition(R.anim.open_activity,R.anim.close_activity);
             }
         });
 

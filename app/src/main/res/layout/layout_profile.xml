@@ -42,11 +42,12 @@
     <TableLayout
         android:id="@+id/info_profile"
         android:layout_height="240dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_width="150dp"
         android:layout_alignTop="@+id/layout_image"
         android:layout_toRightOf="@+id/layout_image"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_width="150dp">
+        android:layout_toEndOf="@+id/layout_image">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -56,6 +57,7 @@
                 android:text="두더지"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="4"
                 android:id="@+id/game_what1" />
 
             <TextView
@@ -71,7 +73,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="랭킹 : "
+                android:text="랭킹 :  "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ranking_what1" />
@@ -119,6 +121,7 @@
                 android:text="카드"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="4"
                 android:id="@+id/textView234" />
 
             <TextView
@@ -182,6 +185,7 @@
                 android:text="머핀"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="4"
                 android:id="@+id/game_what2" />
         </TableRow>
 
@@ -232,6 +236,7 @@
                 android:text="바위깨기"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="4"
                 android:id="@+id/textView435" />
         </TableRow>
 
